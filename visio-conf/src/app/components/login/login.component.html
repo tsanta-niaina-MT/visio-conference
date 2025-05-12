@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center align-items-center vh-100" style="background: linear-gradient(to bottom, #b0b0b0, #053669);">
+  <div class="card p-4 shadow-lg" style="width: 350px;">
+    <h3 class="text-center mb-3">Connexion</h3>
+    
+    <!-- on retire "form" pour éviter que le navigateur le soumette par défaut -->
+    <div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Adresse email</label>
+        <input #emailInput type="email" class="form-control form-control-sm" id="email" placeholder="Entrer votre email">
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input #passwordInput type="password" class="form-control form-control-sm" id="password" placeholder="Mot de passe">
+      </div>
+
+      <!-- bouton avec le click -->
+      <button (click)="login(emailInput, passwordInput)" class="btn w-100 text-white" style="background-color: #053669; border-color: #053669;">
+        Se connecter
+      </button>
+    </div>
+
+    <!-- Partie pour créer un compte -->
+    <div class="text-center mt-3">
+      <p class="mb-0">Vous n'avez pas de compte ?</p>
+      <a href="http://localhost:4200/signup" class="text-primary">Créer un compte</a>
+    </div>
+  </div>
+</div>

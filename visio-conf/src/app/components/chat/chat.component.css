@@ -1,0 +1,21 @@
+.triangle-left::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #f8f9fa; /* bg-light */
+}
+
+.triangle-right::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #0d6efd; /* bg-primary */
+}
