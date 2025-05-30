@@ -1,102 +1,19 @@
-<div class="container-fluid d-flex rounded-5" style="min-height: 100vh; background: linear-gradient(to bottom, #b0b0b0, #053669);">
-  <!-- Partie gauche : Liste des personnes -->
-  <div class="col-3 bg-light p-3">
-    <h5 class="text-center">Liste des Participants</h5>
-    <ul class="list-group">
-      <li class="list-group-item d-flex align-items-center">
-        <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-circle me-2">
-        <span>Utilisateur 1</span>
-      </li>
-      <li class="list-group-item d-flex align-items-center">
-        <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-circle me-2">
-        <span>Utilisateur 2</span>
-      </li>
-      <li class="list-group-item d-flex align-items-center">
-        <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-circle me-2">
-        <span>Utilisateur 3</span>
-      </li>
-    </ul>
-  </div>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Bienvenue {{ currentUser }}</h2>
 
-  <!-- Partie droite : Le chat -->
-  <div class="col-9 d-flex flex-column">
-    <!-- Header -->
-    <div class="card-header custom-header text-white mb-2 mt-1 ms-2 rounded-2" style="height: 50px;background-color: #053669;">
-      <h5 class="m-2">Chat</h5>
-    </div>
-
-    <!-- Messages -->
-  <div class="card-body overflow-auto px-3" style="height: 300px;">
-  <div *ngFor="let msg of messages">
-    
-    <!-- Message utilisateur actuel (à droite) -->
-<div *ngIf="msg.user === currentUser" class="position-relative d-flex flex-column align-items-end mb-3">
-  <div class="text-white p-2 px-3 position-relative" style="max-width: 300px; border-radius: 15px; background-color: #053669;">
-    <strong>{{ msg.user }}:</strong> {{ msg.text }}
-
-    <!-- Flèche bleue en bas à droite dans le coin -->
-    <div style="
-      position: absolute;
-      bottom: -8px;
-      right: 0px;
-      width: 10px;
-      height: 18px;
-      background-color: #053669;
-      clip-path: path('M0,0 C5,10 5,10 0,18 Z');
-    ">
+  <!-- Zone d’appel vidéo -->
+  <div class="card mb-3">
+    <div class="card-header">Appel Vidéo</div>
+    <div class="card-body text-center">
+      <div id="jitsi-container"
+           style="width: 100%; height: 600px; border-radius: 1rem; overflow: hidden; background-color: black;">
+      </div>
     </div>
   </div>
-</div>
 
-
-    <!-- Message autre utilisateur (à gauche) avec profil -->
-<div *ngIf="msg.user !== currentUser" class="d-flex align-items-end gap-2 mb-3">
-  <!-- Photo de profil -->
-  <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-circle" style="width: 35px; height: 35px; object-fit: cover;">
-
-  <!-- Bulle de message -->
-  <div class="position-relative text-dark p-2 px-3" style="max-width: 300px; border-radius: 15px; background-color: #e5efff;">
-    <strong>{{ msg.user }}:</strong> {{ msg.text }}
-
-    <!-- Flèche même couleur que le fond -->
-    <div style="
-      position: absolute;
-      bottom: -8px;
-      left: 0px;
-      width: 10px;
-      height: 18px;
-      background-color: #e5efff;
-      clip-path: path('M10,0 C5,10 5,10 10,18 Z');
-    "></div>
-  </div>
-</div>
-
-
-
-  </div>
-</div>
-
-
-    <!-- Zone de saisie -->
-    <div class="card-footer d-flex align-items-center gap-2 mb-2 ms-2">
-      <!-- Icône d'appel -->
-      <button class="btn btn-outline-secondary">
-        <i class="bi bi-telephone"></i>
-      </button>
-
-      <!-- Champ de texte multilignes -->
-      <textarea
-        [(ngModel)]="currentMessage"
-        rows="1"
-        class="form-control"
-        placeholder="Écris un message..."
-        style="resize: none;"
-      ></textarea>
-
-      <!-- Bouton envoyer -->
-      <button (click)="sendMessage()" class="btn btn-primary me-2" style="background-color:#b0b0b0; color: #053669;">
-        Envoyer
-      </button>
-    </div>
+  <!-- Boutons -->
+  <div class="text-center mb-3">
+    <button class="btn btn-danger me-2" (click)="endCall()">Terminer l'appel</button>
+    <button class="btn btn-outline-danger" (click)="logout()">Se déconnecter</button>
   </div>
 </div>

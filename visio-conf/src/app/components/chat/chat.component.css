@@ -19,3 +19,15 @@
   border: 10px solid transparent;
   border-left-color: #0d6efd; /* bg-primary */
 }
+
+.video-flux {
+  width: 90%;
+  max-height: 90%;
+  border-radius: 1rem;
+  object-fit: cover;
+  border: 4px solid #053669;
+}
+
+.video-container {
+  background-color: black;
+}
